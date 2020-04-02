@@ -26,7 +26,6 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
-              
             ],
             "scripts": []
           },
@@ -121,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ang-FrontTnsHV"
+    }
+  },
+  "defaultProject": "ang-FrontTnsHV",
+  "cli": {
+    "analytics": "8ea8ec59-2e86-424b-87c6-5144a1ec08fb"
+  }
 }
