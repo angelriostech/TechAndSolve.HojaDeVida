@@ -8,12 +8,11 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <div class="alert alert-success alert-dismissable">
-        <a href="#" class="close"></a>
-        &times;
-        <a>
-          Siempre Exito!
+      <div class="alert alert-success alert-dismissable" *ngIf="msg">
+        <a href="#" class="close" (click)="closeAlert()">
+          &times;
         </a>
+        {{msg}}
       </div>
     </div>
     <div class="col-sm-8">
@@ -25,7 +24,7 @@
           </label>
           <div class="col-sm-10">
             <input type="number" class="form-control" id="idcard"
-            name="idcard" [(ngModel)]="model.idcard" placeholder=""
+            name="idcard" [ngModel]="model.IdCard" required placeholder=""
             >
           </div>
         </div>
@@ -35,7 +34,7 @@
           </label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="name"
-            name="name" [(ngModel)]="model.name" placeholder=""
+            name="FirstName" [ngModel]="model.FirstName" placeholder=""
             >
           </div>
         </div>
@@ -44,8 +43,8 @@
             Segundo nombre
           </label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="secondname"
-            name="secondname" [(ngModel)]="model.secondname" placeholder=""
+            <input type="text" class="form-control" id="SecondName"
+            name="secondname" [ngModel]="model.SecondName" placeholder=""
             >
           </div>
         </div>
@@ -54,8 +53,8 @@
             Primer apellido
           </label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="surname"
-            name="surname" [(ngModel)]="model.surname" placeholder=""
+            <input type="text" class="form-control" id="Surname"
+            name="surname" [ngModel]="model.Surname" placeholder=""
             >
           </div>
         </div>
@@ -64,8 +63,8 @@
             Segundo Apellido
           </label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="secondsurname"
-            name="secondsurname" [(ngModel)]="model.secondsurname" placeholder=""
+            <input type="text" class="form-control" id="SecondSurname"
+            name="SecondSurname" [ngModel]="model.SecondSurname" placeholder=""
             >
           </div>
         </div>
@@ -88,13 +87,24 @@
         <h2>Solvers</h2>
         <table class="table table-bordered">
           <thead>
+            <th>Identificación</th>
             <th>Primer nombre</th>
-            <th>Primer Apellido</th>            
+            <th>Segundo nombre</th>
+            <th>Primer Apellido</th>
+            <th>Segundo Apellido</th>
+            <th>Opciones</th>            
           </thead>
           <tbody>
             <tr *ngFor="let Solver of solvers; let i=index">
+              <td>{{Solver.IdCard}}</td>
               <td>{{Solver.FirstName}}</td>
+              <td>{{Solver.SecondName}}</td>
               <td>{{Solver.Surname}}</td>
+              <td>{{Solver.SecondSurname}}</td>
+              <td>
+                <a (click)="editSolver(i)"  class="btn btn-success">Editar</a>
+                <a (click)="deleteSolver(i)" class="btn btn-danger">Borrar</a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -102,4 +112,5 @@
 
     </div>
   </div>
+  
   
